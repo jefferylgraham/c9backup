@@ -51,4 +51,4 @@ app.use("/campgrounds", campgroundRoutes);
 
 app.listen(3000, function() {
     console.log("YelpCamp server started...");
-})
+});
