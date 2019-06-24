@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+<h1>Edit <%= crystal.name %></h1>
+
+<form action="/crystals/<%= crystal._id %>?_method=PUT" method="POST">
+    <input type="text" name="crystal[name]" value="<%= crystal.name %>">
+    <input type="text" name="crystal[image]" value="<%= crystal.image %>">
+    <input type="text" name="crystal[meaning]" value="<%= crystal.meaning %>">
+    <input type="text" name="crystal[healing]" value="<%= crystal.healing %>">
+    <input type="text" name="crystal[chakras]" value="<%= crystal.chakras %>">
+    <input type="text" name="crystal[description]" value="<%= crystal.description %>">
+    <input type="submit">
+</form>
+
+<% include partials/header %>

@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+<h1>Crystals</h1>
+
+<% crystals.forEach(function(crystal) { %>
+    <h2><%= crystal.name %></h2>
+    <h3><%= crystal.meaning %></h3>
+    <img src="<%= crystal.image%>">
+    <p><%= crystal.healing %></p>
+    <p><%= crystal.description %></p>
+     <p><%= crystal.chakras %></p>
+     <a href="/crystals/<%= crystal._id  %>">Read More</a>
+<% }); %>
+
+<% include partials/header %>

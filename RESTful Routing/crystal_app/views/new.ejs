@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+<h1>New Crystal</h1>
+
+<form action="/crystals" method="POST">
+    <input type="text" name="crystal[name]" placeholder="Name">
+    <input type="text" name="crystal[image]" placeholder="image url">
+    <input type="text" name="crystal[meaning]" placeholder="meaning">
+    <input type="text" name="crystal[healing]" placeholder="healin properties">
+    <input type="text" name="crystal[chakras]" placeholder="chakras">
+    <input type="text" name="crystal[description]" placeholder="description">
+    <input type="submit">
+</form>
+
+<% include partials/header %>

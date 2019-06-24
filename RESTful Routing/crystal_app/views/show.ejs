@@ -1,0 +1,10 @@
+<% include partials/header %>
+
+<h1><%= crystal.name  %></h1>
+<img src="<%= crystal.image %>">
+<a href="/crystals/<%= crystal._id %>/edit">Edit</a>
+<form action="/crystals/<%= crystal._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+</form>
+
+<% include partials/header %>
