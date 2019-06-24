@@ -10,6 +10,8 @@ var express     = require("express"),
     session     = require("express-session"),
     app         = express(),
     seedDB      = require("./seeds.js");
+
+require('dotenv').config();
     
     
 //requiring routes
@@ -18,7 +20,7 @@ var commnentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
     
     
-mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true});
+mongoose.connect(`mongodb+srv://grahamj78:${process.env.DB_PASS}@cluster0-9sunf.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
@@ -47,6 +49,6 @@ app.use("/", indexRoutes);
 app.use("/campgrounds/:id/comments", commnentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(3000, function() {
     console.log("YelpCamp server started...");
 })
