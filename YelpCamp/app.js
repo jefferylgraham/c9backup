@@ -1,6 +1,7 @@
 var express     = require("express"),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
+	flash		= require("connect-flash"),
     Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
@@ -24,6 +25,7 @@ mongoose.connect(`mongodb+srv://grahamj78:${process.env.DB_PASS}@cluster0-9sunf.
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 app.set("view engine", "ejs");
 // seedDB();
 
@@ -42,6 +44,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
+	res.locals.error = req.flash("error");
+	res.locals.success = req.flash("success");
     next();
 });
 
